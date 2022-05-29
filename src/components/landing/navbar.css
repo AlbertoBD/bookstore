@@ -1,0 +1,12 @@
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: rgb(255, 255, 255) !important;
+    margin-left: 1rem;
+}
+
+.btn-login {
+    margin-right: 20px;
+    color: white !important;
+    border: 1px solid white !important;
+}

@@ -1,0 +1,83 @@
+.client-div {
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    gap: 20px;
+}
+
+.client-section {
+    position: relative;
+    margin-top: -20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.client-img {
+    width: 100%;
+    max-width: 400px;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+blockquote {
+    font-family: Georgia, serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    width: 100%;
+    max-width: 300px;
+    padding: 20px 20px;
+    line-height: 1.45;
+    position: relative;
+    color: #383838;
+}
+
+blockquote:before {
+    display: block;
+    padding-left: 15px;
+    content: "\201C";
+    font-size: 80px;
+    position: absolute;
+    left: -20px;
+    top: -20px;
+    color: #7a7a7a;
+}
+
+blockquote cite {
+    color: #999999;
+    font-size: 14px;
+    display: block;
+    margin-top: 5px;
+}
+
+blockquote cite:before {
+    content: "\2014 \2009";
+}
+
+@media screen and (max-width: 768px) {
+    .client-div {
+        flex-direction: column;
+    }
+
+    blockquote {
+        font-size: 1.2rem;
+        max-width: 100%;
+    }
+}
+
+.ready {
+    background: rgb(0, 8, 255);
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.ready-h2 {
+    color: white;
+}

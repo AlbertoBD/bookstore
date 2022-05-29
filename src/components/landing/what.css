@@ -1,0 +1,64 @@
+.what-h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+}
+
+.what-h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: rgb(0, 0, 0);
+}
+
+.what-text {
+    width: 100%;
+    max-width: 400px;
+    color: rgb(0, 0, 0);
+    font: sans-serif;
+}
+
+.what-img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 20px;
+    -webkit-box-shadow: 5px 5px 15px 5px #FF8080, -9px 5px 15px 5px #FFE488, -7px -5px 15px 5px #8CFF85, 12px -5px 15px 5px #80C7FF, 12px 10px 15px 7px #E488FF, -10px 10px 15px 7px #FF616B, -10px -7px 27px 1px #8E5CFF, 5px 4px 15px 2px rgba(0,0,0,0); 
+    box-shadow: 5px 5px 15px 5px #FF8080, -9px 5px 15px 5px #FFE488, -7px -5px
+}
+
+.what-div {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 120px;
+}
+
+.what-div:last-child {
+    padding-bottom: 100px;
+}
+
+@media screen and (min-width: 768px) {
+    .what-div {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .what-text {
+        max-width: 50%;
+    }
+
+    .what-img {
+        width: 500px;
+        max-width: 80%;
+    }
+
+    .what-div:nth-of-type(even) .what-text {
+        order: 1;
+    }
+
+    .what-h2, .what-h1 {
+        font-size: 3rem;
+    }
+}
+
+
+    

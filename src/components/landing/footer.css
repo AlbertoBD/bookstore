@@ -1,0 +1,28 @@
+.footer {
+    margin-bottom: -20px;
+}
+
+.footer-ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-ul li {
+    text-decoration: none;
+}
+
+.footer-svg {
+    margin-bottom: -50px;
+}
+
+@media screen and (min-width: 500px) {
+    .footer-ul {
+        flex-direction: row;
+        gap: 20px;
+    }
+}

@@ -1,0 +1,53 @@
+.info-img {
+    width: 100%;
+    max-width: 300px;
+}
+
+.info-h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.info {
+    max-width: 250px;
+    text-align: center;
+}
+
+@media screen and (max-width: 1000px) {
+    .info {
+        max-width: 300px;
+    }
+
+    .info-img {
+        max-width: 300px;
+    }
+}
+
+.info-text {
+    font-weight: 600;
+}
+
+
+.info-header {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: blue;
+}
+
+.section-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+@media screen and (min-width: 1000px) {
+    .section-info {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-around;
+    }
+}

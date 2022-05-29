@@ -1,0 +1,16 @@
+.hero-img {
+    width: 100%;
+    max-width: 700px;
+    object-fit: cover;
+}
+
+.hero-text {
+    max-width: 500px;
+    margin-right: 20px;
+    text-align: center;
+    color: white;
+}
+
+svg {
+    margin-top: -20px;
+}

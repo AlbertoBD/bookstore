@@ -1,24 +1,47 @@
-import logo from './logo.svg';
 import './App.css';
+import React,{useState, useEffect} from 'react';
+import {Route, Routes } from "react-router-dom"
+import Home from "./components/landing/home"
+import Login from "./components/form/login"
+import Register from "./components/form/register"
+import Books from "./components/books/books"
+import Book from "./components/books/book"
+import NotFound from './components/notFound';
+import CartContext from './context/cartContext';
+import "bootstrap"
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
+
 
 function App() {
+  const [cart, setCart] = useState([]);
+
+  const handleAddToCart = (bookId) => {
+    if (cart.includes(bookId)) {
+        setCart(cart.filter(book => book !== bookId));
+    }
+    else {
+        setCart([...cart, bookId]);
+    }
+    console.log(cart);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <CartContext.Provider value={{
+      cart,
+      handleAddToCart
+    }}>
+    <Routes> 
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/books" element={<Books />} />
+      <Route path="/book/:id" element={<Book />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+    </CartContext.Provider>
+    </>
   );
 }
 

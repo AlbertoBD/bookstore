@@ -1,0 +1,21 @@
+.form-contact {
+    width: 100vw;
+    margin: 0 auto;
+    padding: 0 20px;
+    background-color: blue;
+    color: white;
+    padding: 20px 0;
+}
+
+.form-contact .container-sm {
+    max-width: 700px;
+}
+
+textarea {
+    resize: none;
+}
+
+.form-control {
+    resize: none;
+}
+
