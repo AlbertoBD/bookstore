@@ -53,7 +53,7 @@ export default function PaginateProducts({ products, category }) {
                             return (
                                 <Card key={product.id} style={{ width: '200px', height: "fit-content" }} border="secondary" className="card">
                                     <Card.Img variant="top" src={product.image} className="card_img" />
-                                    <Badge pill bg="secondary" className="card_badge">{product.price} lei</Badge>
+                                    <Badge bg="secondary" className="card_badge">{product.price} lei</Badge>
                                     <Card.Body className="card_body">
                                         <Card.Title className="card_title">{product.title}</Card.Title>
                                         <Card.Text className="card_text">
