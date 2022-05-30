@@ -10,6 +10,7 @@ export default function Hero() {
             <div className="hero-text mt-5">
                 <h1 className="mb-4">Cumpara carti de pe Carturesti mai ieftin decat pe pe Carturesti</h1>
                 <a href="/register"><button class="btn btn-login">Creaza cont gratuit</button></a>
+                <a href="/books"><button class="btn btn-login mt-5">Descopera colectia</button></a>
             </div>
 
             <div>

@@ -6,7 +6,7 @@ const books = [
         genre: "Fantasy",
         description: "The Lord of the Rings is an epic high fantasy novel written by English author J. R. R. Tolkien. The story began as a sequel to Tolkien's 1937 fantasy novel The Hobbit, but eventually developed into a much larger work. Written in stages between 1937 and 1949, The Lord of the Rings is one of the best-selling novels ever written, with over 150 million copies sold",
         price: "19.99",
-        image: "https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._SX331_BO1,204,203,200_.jpg",
+        image: "https://m.media-amazon.com/images/I/A1yy50fuVnL._AC_UY545_FMwebp_QL65_.jpg",
         rating: 5
     },
     {
@@ -16,7 +16,7 @@ const books = [
         genre: "Fantasy",
         description: "Harry Potter and the Philosopher's Stone is a fantasy novel written by British author J. K. Rowling. The story follows Harry Potter, a young wizard who discovers his magical heritage on his eleventh birthday, when he receives a letter of acceptance to Hogwarts School of Witchcraft and Wizardry. Harry is snatched away from his normal life by his former friend, the evil Lord Voldemort, who killed Harry's parents, but in their place, he receives a mysterious letter from the wizard Harry Potter, telling him that he is to become a Horcrux, the object of the Wizarding world's most powerful curse.",
         price: "19.99",
-        image: "https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._SX331_BO1,204,203,200_.jpg",
+        image: "https://m.media-amazon.com/images/I/91BT--NUiKL._AC_SX296_SY426_FMwebp_QL65_.jpg",
         rating: 5
     },
     {
@@ -26,7 +26,7 @@ const books = [
         genre: "Fantasy",
         description: "The Hobbit, or There and Back Again is a children's fantasy novel written by English author J. R. R. Tolkien. It is based on the 1937 novel The Hobbit by the same author. The story follows the quest of home-loving hobbit Bilbo Baggins and his company of dwarves, Gandalf the Grey, to reclaim their mountain home from Smaug the dragon.",
         price: "19.99",
-        image: "https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._SX331_BO1,204,203,200_.jpg",
+        image: "https://m.media-amazon.com/images/I/A18niDmK8pL._AC_SX296_SY426_FMwebp_QL65_.jpg",
         rating: 5
     },
     {
@@ -36,7 +36,7 @@ const books = [
         genre: "Drama",
         description: "Game of Thrones is an American fantasy drama television series created by David Benioff and D. B. Weiss. It is an adaptation of A Song of Ice and Fire, George R. R. Martin's series of fantasy novels, the first of which is A Game of Thrones. It is filmed at Titanic Studios in Belfast and elsewhere in the United Kingdom, Canada, Croatia, Iceland, Malta, Morocco, Spain, and the United States.",
         price: "19.99",
-        image: "https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._SX331_BO1,204,203,200_.jpg",
+        image: "https://m.media-amazon.com/images/I/81VqkhMFpuL._AC_SX296_SY426_FMwebp_QL65_.jpg",
         rating: 5
     },
     {
