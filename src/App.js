@@ -1,9 +1,10 @@
 import './App.css';
-import React,{useState, useEffect} from 'react';
-import {Route, Routes } from "react-router-dom"
+import React, { useState, useEffect } from 'react';
+import { Route, Routes } from "react-router-dom"
 import Home from "./components/landing/home"
-import Login from "./components/form/login"
+import Login from "./components/form/login";
 import Register from "./components/form/register"
+import Navbar from './components/landing/navbar';
 import Books from "./components/books/books"
 import Book from "./components/book/book"
 import NotFound from './components/common/notFound';
@@ -19,28 +20,32 @@ function App() {
 
   const addToCart = (product) => {
     // if product not in cart add it
-    if(!cart.find(item => item.id === product.id)){
+    if (!cart.find(item => item.id === product.id)) {
       setCart([...cart, product]);
     }
     // else remove it
-    else{
+    else {
       setCart(cart.filter(item => item.id !== product.id))
     }
   };
 
   return (
     <>
-    <CartContext.Provider value={{ cart, addToCart }}>
-    <Routes> 
-      <Route path="/" element={<Home />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
-      <Route path="/books" element={<Books />} />
-      <Route path="/book/:id" element={<Book />} />
-      <Route path="/cart" element={<Cart />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
-    </CartContext.Provider>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+
+      <CartContext.Provider value={{ cart, addToCart }}>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/books" element={<Books />} />
+          <Route path="/book/:id" element={<Book />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </CartContext.Provider>
     </>
   );
 }

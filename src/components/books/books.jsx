@@ -79,7 +79,6 @@ export default function Books() {
 
     return (
         <>
-            <Navbar />
             <SearchBox onChange={handleSearch} value={search} />
             <ListGroup currentGenre={currentGenre} onGenreChange={handleGenreChange} genres={genres} />
             <BooksBody books={books} genres={genres} currentGenre={currentGenre} page={page} setPage={setPage} pageSize={pageSize}/>
