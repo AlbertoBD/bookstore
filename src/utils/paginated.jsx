@@ -11,9 +11,9 @@ export default function PaginateProducts({ products, category }) {
     const { cart, handleAddToCart } = useContext(CartContext);
     const [width, setWidth] = useState(window.innerWidth);
     const [page, setPage] = useState(1);
+    const [slide, setSlide] = useState(false);
 
-    const producsPerPage = Math.ceil(width / 258);
-    const pageSize = producsPerPage < 4 ? 4 : producsPerPage;
+    const pageSize = Math.floor(width / 258);  // 258 is the width of the card
 
     // paginate procuts by category
     const filteredProducts = _.filter(products, (item) => {
@@ -22,20 +22,33 @@ export default function PaginateProducts({ products, category }) {
 
     // if viewport is less than laptop (1024px) return all products that match category aka disabled pagination
     const paginatedProducts = width < 1024 ? filteredProducts : paginate(filteredProducts, page, pageSize);
+    // previos page products
 
     const handleResize = () => {
         setWidth(window.innerWidth);
     };
     window.addEventListener('resize', handleResize);
 
+    const slideAnim = (direction) => {
+        setSlide(direction);
+        setTimeout(() => {
+            if (direction === 'left') {
+                setPage(page - 1);
+            } else if (direction === 'right') {
+                setPage(page + 1);
+            }
+            setSlide(false);
+        }, 45);
+    }
+
     return (
         <>
             <div className="paginated-products">
-                <Button variant="primary" className="shift_btn prev" onClick={() => setPage(page - 1)} disabled={page === 1}>
+                <Button variant="primary" className="shift_btn prev" onClick={() => slideAnim("left")} disabled={page === 1}>
                     <FontAwesomeIcon icon={faAngleLeft} />
                 </Button>
                 <div key={category.id} className="genre_books">
-                    <div className="books_list">
+                    <div className={slide ? `books_list slide_${slide}` : "books_list"}>
                         {paginatedProducts.map(product => {
                             return (
                                 <Card key={product.id} style={{ width: '200px', height: "fit-content" }} border="secondary">
@@ -57,7 +70,7 @@ export default function PaginateProducts({ products, category }) {
                         })}
                     </div>
                 </div>
-                <Button variant="primary" className="shift_btn next" onClick={() => setPage(page + 1)} disabled={page === Math.ceil(filteredProducts.length / pageSize)}>
+                <Button variant="primary" className="shift_btn next" onClick={() => slideAnim("right")} disabled={page === Math.ceil(filteredProducts.length / pageSize)}>
                     <FontAwesomeIcon icon={faAngleRight} />
                 </Button>
             </div>
