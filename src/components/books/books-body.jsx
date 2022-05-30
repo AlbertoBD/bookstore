@@ -5,11 +5,20 @@ import PaginateProducts from '../../utils/paginated'
 
 
 
-export default function BooksBody({ books, genres }) {
+export default function BooksBody({ books, genres, currentGenre }) {
     const [page, setPage] = useState(1);
     const pageSize = 3;
 
-    const paginatedGenres = paginate(genres, page, pageSize);
+    const paginatedGenres = paginate(genres, page, pageSize)
+
+    if (currentGenre !== "Toate genurile") {
+        return (
+            <div className="books-body">
+                <h2 className="product_name">{currentGenre}</h2>
+                <PaginateProducts products={books} category={currentGenre} />
+            </div>
+        )
+    }
 
     return (
         <>
