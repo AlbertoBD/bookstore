@@ -7,10 +7,16 @@ import PaginateProducts from '../../utils/paginated'
 
 export default function BooksBody({ books, genres, currentGenre }) {
     const [page, setPage] = useState(1);
-    const pageSize = 3;
+    const pageSize = 5;
 
     const paginatedGenres = paginate(genres, page, pageSize)
 
+    // when user search, if no product meets critearia
+    if (books.length === 0) {
+        return <div className="empty_books">Nu a fost gasita nici o carte!</div>
+    }
+
+    // showing only a cattegory of product
     if (currentGenre !== "Toate genurile") {
         return (
             <div className="books-body">

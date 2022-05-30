@@ -176,3 +176,9 @@
         margin-left: 0;
     }
 }
+
+.empty_books {
+    font-size: 25px;
+    text-align: center;
+    margin-top: 50px;
+}

@@ -12,9 +12,9 @@ export default function Books() {
     const [search, setSearch] = useState("");
     const [currentGenre, setCurrentGenre] = useState("Toate genurile");
     const [genres, setGenres] = useState([]);
+    const [genresCopy, setGenresCopy] = useState([]);
     const [books, setBooks] = useState([]);
     const [booksCopy, setBooksCopy] = useState([]);
-    const [genresCopy, setGenresCopy] = useState([]);
 
     const handleSearch = (e) => {
         setSearch(e.target.value);
@@ -23,8 +23,12 @@ export default function Books() {
         // when user types in search box modify the currentGenre to all genres
         if (lowerCase.length > 0) {
             setCurrentGenre("Toate genurile");
-            setBooks(booksCopy);
         };
+
+        if (lowerCase.length === 0) {
+            setBooks(booksCopy);
+            setCurrentGenre("Toate genurile");
+        }
 
         const result = booksCopy.filter(m => m.title.toLowerCase().includes(lowerCase));
 
@@ -33,7 +37,6 @@ export default function Books() {
         }
         else {
             let genreInSearch = result.map(m => m.genre);
-            //get unique genres name and id from genreInSearch and map by genres copy
             let uniqueGenresInSearch = genreInSearch.filter((v, i, a) => a.indexOf(v) === i);
             let uniqueGenres = genresCopy.filter(g => uniqueGenresInSearch.includes(g.name));
             setGenres(uniqueGenres);
