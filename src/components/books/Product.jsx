@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart, faCheck } from '@fortawesome/free-solid-svg-icons'
 
 export default function Product({product}) {
-    const { cart, handleAddToCart } = useContext(CartContext);
+    const { cart, addToCart } = useContext(CartContext);
 
     return (
         <Card style={{ width: '200px', height: "fit-content" }} border="secondary">
@@ -18,8 +18,8 @@ export default function Product({product}) {
                 </Card.Text>
                 <div className="card_buttons">
                     <Button variant="primary" href={"/book/" + product.id}>Mai multe</Button>
-                    <button className={cart.includes(product.id) ? "shopping_button to_cart" : "shopping_button"} onClick={() => handleAddToCart(product.id)}>
-                        <FontAwesomeIcon icon={cart.includes(product.id) ? faCheck : faShoppingCart} />
+                    <button className={cart.includes(product) ? "shopping_button to_cart" : "shopping_button"} onClick={() => addToCart(product)}>
+                        <FontAwesomeIcon icon={cart.includes(product) ? faCheck : faShoppingCart} />
                     </button>
                 </div>
             </Card.Body>
