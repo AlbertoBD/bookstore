@@ -219,6 +219,26 @@ const books = [
         image: "https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._SX331_BO1,204,203,200_.jpg",
         rating: 5
     },
+    {
+        id: 23,
+        title: "A Song of Ice and Fire",
+        author: "George R.R. Martin",
+        genre: "Fiction",
+        description: "A Song of Ice and Fire is a series of fantasy novels written by American author George R. R. Martin. It is the first novel in Martin's A Song of Ice and Fire series and the first novel in the Martin series to be adapted for the screen, and the first novel in the series to be adapted for hardcover. It was first published on August 1, 1996 by HarperCollins Publishers in the United States.",
+        price: "12.99",
+        image: "https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._SX331_BO1,204,203,200_.jpg",
+        rating: 5
+    },
+    {
+        id: 24,
+        title: "A Song of Ice and Fire",
+        author: "George R.R. Martin",
+        genre: "Fiction",
+        description: "A Song of Ice and Fire is a series of fantasy novels written by American author George R. R. Martin. It is the first novel in Martin's A Song of Ice and Fire series and the first novel in the Martin series to be adapted for the screen, and the first novel in the series to be adapted for hardcover. It was first published on August 1, 1996 by HarperCollins Publishers in the United States.",
+        price: "12.99",
+        image: "https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._SX331_BO1,204,203,200_.jpg",
+        rating: 5
+    },
 ];
 
 function getBookById(id) {

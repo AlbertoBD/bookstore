@@ -6,7 +6,7 @@ import Login from "./components/form/login"
 import Register from "./components/form/register"
 import Books from "./components/books/books"
 import Book from "./components/books/book"
-import NotFound from './components/notFound';
+import NotFound from './components/common/notFound';
 import CartContext from './context/cartContext';
 import "bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -28,10 +28,7 @@ function App() {
 
   return (
     <>
-    <CartContext.Provider value={{
-      cart,
-      handleAddToCart
-    }}>
+    <CartContext.Provider value={{ cart, handleAddToCart }}>
     <Routes> 
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import "./books.css"
 import Navbar from '../landing/navbar'
-import SearchBox from './searchBox'
-import ListGroup from './listGroup'
+import SearchBox from '../common/searchBox'
+import ListGroup from '../common/listGroup'
 import BooksBody from './books-body'
 import { getBooks } from './books-data'
 import  getGenres from './genre-data'
@@ -45,6 +45,7 @@ export default function Books() {
         setBooks(result);
     };
 
+
     const handleGenreChange = (genre) => {
         setCurrentGenre(genre);
         setSearch("");
@@ -57,6 +58,7 @@ export default function Books() {
         }
     };
 
+
     useEffect(() => {
         const genresData = getGenres();
         setGenres(genresData);
@@ -67,6 +69,7 @@ export default function Books() {
         setBooksCopy(booksData);
     }, []);
 
+    
     return (
         <>
             <Navbar />

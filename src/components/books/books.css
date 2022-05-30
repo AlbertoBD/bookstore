@@ -145,14 +145,14 @@
 }
 
 
-.paginated-products {
+.slider_products {
     display: flex;
     align-items: center;
     position: relative;
     gap: 5px;
 }
 
-.paginated-products h2 {
+.slider_products h2 {
     margin-left: 100px;
 }
 
@@ -169,7 +169,7 @@
         display: none !important;
     }
 
-    .paginated-products {
+    .slider_products {
         display: inline;
     }
 
