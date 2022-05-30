@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import _ from 'lodash';
 import {paginate} from '../utils/paginate';
 import { Card } from 'react-bootstrap'
-import { Button } from 'react-bootstrap'
+import { Button, Badge } from 'react-bootstrap'
 import CartContext from '../context/cartContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart, faCheck, faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons'
@@ -51,8 +51,9 @@ export default function PaginateProducts({ products, category }) {
                     <div className={slide ? `books_list slide_${slide}` : "books_list"}>
                         {paginatedProducts.map(product => {
                             return (
-                                <Card key={product.id} style={{ width: '200px', height: "fit-content" }} border="secondary">
+                                <Card key={product.id} style={{ width: '200px', height: "fit-content" }} border="secondary" className="card">
                                     <Card.Img variant="top" src={product.image} className="card_img" />
+                                    <Badge pill bg="secondary" className="card_badge">{product.price} lei</Badge>
                                     <Card.Body className="card_body">
                                         <Card.Title className="card_title">{product.title}</Card.Title>
                                         <Card.Text className="card_text">

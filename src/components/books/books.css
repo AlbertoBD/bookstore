@@ -97,6 +97,17 @@
     object-fit: fit;
 }
 
+.card .card_badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: rgb(255, 255, 255);
+    font-size: 1rem !important;
+    border-radius: none !important;
+    font-weight: bold;
+}
+
+
 .card_title {
     text-overflow: ellipsis;
     height: 50px;
