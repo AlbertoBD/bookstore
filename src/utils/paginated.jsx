@@ -15,14 +15,14 @@ export default function PaginateProducts({ products, category }) {
 
     const pageSize = Math.floor(width / 258);  // 258 is the width of the card
 
-    // paginate procuts by category
+    // paginate prducts by category
     const filteredProducts = _.filter(products, (item) => {
         return item.genre === category;
     })
 
     // if viewport is less than laptop (1024px) return all products that match category aka disabled pagination
     const paginatedProducts = width < 1024 ? filteredProducts : paginate(filteredProducts, page, pageSize);
-    // previos page products
+    console.log(paginatedProducts)
 
     const handleResize = () => {
         setWidth(window.innerWidth);
@@ -44,9 +44,9 @@ export default function PaginateProducts({ products, category }) {
     return (
         <>
             <div className="paginated-products">
-                <Button variant="primary" className="shift_btn prev" onClick={() => slideAnim("left")} disabled={page === 1}>
+                {filteredProducts.length > pageSize && <Button variant="primary" className="shift_btn prev" onClick={() => slideAnim("left")} disabled={page === 1}>
                     <FontAwesomeIcon icon={faAngleLeft} />
-                </Button>
+                </Button>}
                 <div key={category.id} className="genre_books">
                     <div className={slide ? `books_list slide_${slide}` : "books_list"}>
                         {paginatedProducts.map(product => {
@@ -71,9 +71,9 @@ export default function PaginateProducts({ products, category }) {
                         })}
                     </div>
                 </div>
-                <Button variant="primary" className="shift_btn next" onClick={() => slideAnim("right")} disabled={page === Math.ceil(filteredProducts.length / pageSize)}>
+                {filteredProducts.length > pageSize && <Button variant="primary" className="shift_btn next" onClick={() => slideAnim("right")} disabled={page === Math.ceil(filteredProducts.length / pageSize)}>
                     <FontAwesomeIcon icon={faAngleRight} />
-                </Button>
+                </Button>}
             </div>
         </>
     )

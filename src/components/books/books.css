@@ -148,6 +148,7 @@
 .paginated-products {
     display: flex;
     align-items: center;
+    position: relative;
     gap: 5px;
 }
 
@@ -181,4 +182,16 @@
     font-size: 25px;
     text-align: center;
     margin-top: 50px;
+}
+
+.prev {
+    position: absolute;
+    left: -4%;
+    top: 45%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.next {
+    margin-bottom: 40px;
 }
