@@ -1,14 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import _ from 'lodash'
-import Pagination from '../common/pagination'
 import { paginate } from '../../utils/paginate'
 import SliderProducts from './sliderProducts'
 
 
-export default function BooksBody({ books, genres, currentGenre }) {
-    const [page, setPage] = useState(1);
-    const pageSize = 5;
-
+export default function BooksBody({ books, genres, currentGenre, page, pageSize }) {
     const paginatedGenres = paginate(genres, page, pageSize);
 
     function filterProducts(products, category) {
@@ -44,7 +40,6 @@ export default function BooksBody({ books, genres, currentGenre }) {
                     )
                 })}
             </div>
-            <Pagination itemsCount={genres.length} pageSize={pageSize} currentPage={page} onPageChange={setPage} />
         </>
     )
 }

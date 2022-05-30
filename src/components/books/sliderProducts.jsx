@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import _ from 'lodash';
 import { paginate } from '../../utils/paginate';
 import { Button } from 'react-bootstrap'
-import Product from './Product';
+import Product from './product';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons'
 
@@ -11,10 +11,12 @@ export default function SliderProducts({ products, category }) {
     const [page, setPage] = useState(1);
     const [slide, setSlide] = useState(false);
 
-    const productsPerSlide = Math.floor(width / 248);  // 258 is the width of the card
+    const productsPerSlide = Math.floor(width / 258);  // 248 is the width of the card
+    const maxProductsPerSlide = 6
+    const productsToShow = productsPerSlide > maxProductsPerSlide ? maxProductsPerSlide : productsPerSlide;
 
     // if viewport is less than laptop (1024px) return all products that match category aka disabled pagination
-    const paginatedProducts = width < 1024 ? products : paginate(products, page, productsPerSlide);
+    const paginatedProducts = width < 1024 ? products : paginate(products, page, productsToShow);
 
     const handleResize = () => {
         setWidth(window.innerWidth);

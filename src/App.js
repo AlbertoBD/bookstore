@@ -5,7 +5,7 @@ import Home from "./components/landing/home"
 import Login from "./components/form/login"
 import Register from "./components/form/register"
 import Books from "./components/books/books"
-import Book from "./components/books/book"
+import Book from "./components/book/book"
 import NotFound from './components/common/notFound';
 import CartContext from './context/cartContext';
 import "bootstrap"

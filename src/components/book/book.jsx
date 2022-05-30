@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react'
 import CartContext from '../../context/cartContext';
 import { useNavigate, useParams } from 'react-router-dom'
-import { getBookById } from './books-data';
+import { getBookById } from '../books/books-data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faCheck } from '@fortawesome/free-solid-svg-icons'
 import { Spinner } from 'react-bootstrap';
