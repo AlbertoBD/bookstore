@@ -14,19 +14,30 @@ export default function Books() {
     const [genres, setGenres] = useState([]);
     const [books, setBooks] = useState([]);
     const [booksCopy, setBooksCopy] = useState([]);
+    const [genresCopy, setGenresCopy] = useState([]);
 
     const handleSearch = (e) => {
         setSearch(e.target.value);
         let lowerCase = e.target.value.toLowerCase();
 
+        // when user types in search box modify the currentGenre to all genres
         if (lowerCase.length > 0) {
             setCurrentGenre("Toate genurile");
             setBooks(booksCopy);
         };
 
         const result = booksCopy.filter(m => m.title.toLowerCase().includes(lowerCase));
+
         if (result.length === 1) {
             setCurrentGenre(result[0].genre);
+        }
+        else {
+            let genreInSearch = result.map(m => m.genre);
+            //get unique genres name and id from genreInSearch and map by genres copy
+            let uniqueGenresInSearch = genreInSearch.filter((v, i, a) => a.indexOf(v) === i);
+            let uniqueGenres = genresCopy.filter(g => uniqueGenresInSearch.includes(g.name));
+            setGenres(uniqueGenres);
+
         }
         setBooks(result);
     };
@@ -38,17 +49,19 @@ export default function Books() {
             setBooks(booksCopy);
         }
         else {
-            const filteredGenres = booksCopy.filter(book => book.genre === genre);
-            setBooks(filteredGenres);
+            const filteredBooks = booksCopy.filter(book => book.genre === genre);
+            setBooks(filteredBooks);
         }
     };
 
     useEffect(() => {
-        setGenres(getGenres());
+        const genresData = getGenres();
+        setGenres(genresData);
+        setGenresCopy(genresData);
 
-        const data = getBooks();
-        setBooks(data);
-        setBooksCopy(data);
+        const booksData = getBooks();
+        setBooks(booksData);
+        setBooksCopy(booksData);
     }, []);
 
     return (
