@@ -56,6 +56,7 @@ export default function Books() {
     const handleGenreChange = (genre) => {
         setCurrentGenre(genre);
         setSearch("");
+        setPage(1);
         if (genre === "Toate genurile") {
             setBooks(booksCopy);
         }

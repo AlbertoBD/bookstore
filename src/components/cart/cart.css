@@ -71,3 +71,29 @@
     align-items: center;
     margin: 0 auto;
 }
+
+
+.cart_total {
+    width: 100%;
+    max-width: 800px;
+    background-color: rgb(74, 74, 185);
+    color: white;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.cart_total_text {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 600px) {
+    .cart_total {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+    }
+}
