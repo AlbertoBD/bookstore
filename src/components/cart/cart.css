@@ -18,11 +18,12 @@
     max-width: 800px;
     height: fit-content;
     padding: 20px;
-    background-color: rgb(232, 232, 232);
+    background-color: rgb(237, 237, 237);
     border-radius: 10px;
+    margin-bottom: 50px;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 600px) {
     .cart_content {
         flex-direction: column;
         justify-content: center;
