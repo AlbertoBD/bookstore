@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { faLock } from '@fortawesome/free-solid-svg-icons'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
-import { faMessage } from '@fortawesome/free-solid-svg-icons'
+import { faCity, faRoad } from '@fortawesome/free-solid-svg-icons'
 
 
 function renderIcon(icon) {
@@ -18,8 +18,16 @@ function renderIcon(icon) {
         return  <FontAwesomeIcon icon={ faUser } className="form__icon"/> 
     }
 
-    if (icon === "message") { 
-        return  <FontAwesomeIcon icon={ faMessage } className="form__icon"/> 
+    if (icon === "city") { 
+        return  <FontAwesomeIcon icon={ faCity} className="form__icon"/> 
+    }
+
+    if (icon === "county") { 
+        return  <FontAwesomeIcon icon={ faCity} className="form__icon"/> 
+    }
+
+    if (icon === "street") {
+        return  <FontAwesomeIcon icon={ faRoad } className="form__icon"/> 
     }
 };
 
@@ -43,7 +51,7 @@ const Input = ({name, label, value, onChange, error, icon, togglePass, showPass}
                 autoFocus={name === "email" ? true : false}
                 type={name === "password" || name === "repeat_password"? handleType(showPass) : "text"} 
                 id={name}
-                placeholder={name === "repeat_password" ? "Confirm Password" : `Enter ${label}`} />
+                placeholder={name === "repeat_password" ? "Confirma Parola" : `Introdu ${label}`} />
 
             {error && <div className="alert__input">{error}</div>}
         </div>

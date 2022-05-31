@@ -17,6 +17,7 @@ import 'bootstrap/dist/js/bootstrap.min.js';
 
 function App() {
   const [cart, setCart] = useState([]);
+  const location = window.location.pathname;
 
   const addToCart = (product) => {
     // if product not in cart add it
@@ -33,14 +34,11 @@ function App() {
 
   return (
     <>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-      </Routes>
-
       <CartContext.Provider value={{ cart, addToCart }}>
-        <Navbar />
+        {(location !=="/register" && location !=="/login") && <Navbar />}
         <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route exact path="/register" element={<Register />} />
           <Route path="/" element={<Home />} />
           <Route path="/books" element={<Books />} />
           <Route path="/book/:id" element={<Book />} />
