@@ -13,6 +13,8 @@ import Cart from './components/cart/cart';
 import "bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
 function App() {
@@ -35,6 +37,7 @@ function App() {
   return (
     <>
       <CartContext.Provider value={{ cart, addToCart }}>
+        <ToastContainer />
         {(location !=="/register" && location !=="/login") && <Navbar />}
         <Routes>
           <Route path="/login" element={<Login />} />
