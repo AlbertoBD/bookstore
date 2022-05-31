@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import Joi from 'joi-browser'
 import Form from './form'
+import { register } from "../../userService/loginRegister"
 import "./form.css"
-
-
+import { faWindowRestore } from '@fortawesome/free-solid-svg-icons'
 class Register extends Form {
     state = {
         data: {
@@ -23,7 +23,7 @@ class Register extends Form {
     }
 
     schema = {
-        name: Joi.string().alphanum().min(3).max(30).required().label("nume"),
+        name: Joi.string().min(3).max(30).required().label("nume"),
         email: Joi.string().required().email().label("Email"),
         password: Joi.string().required().min(5).max(30).label("Password"),
         repeat_password: Joi.any().valid(Joi.ref('password')).required().options({ language: { any: { allowOnly: "don't match" } } }).label("Passwords"),
@@ -32,11 +32,16 @@ class Register extends Form {
         street: Joi.string().required().label("Strada")
     }
 
-    doSubmit = () => {
+    doSubmit =  async () => {
         const { name, email, password, repeat_password, city, county, street } = this.state.data
         const address = { city, county, street };
         const user = { name, email, password, repeat_password, address };
-        console.log(user);
+        try {
+            await register(user);
+            window.location = "/login";
+        }
+        catch (ex) {
+        }
     };
 
     render() {

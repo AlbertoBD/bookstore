@@ -2,7 +2,9 @@ import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
 import Form from "./form"
 import Joi from 'joi-browser'
+import { login } from '../../userService/loginRegister'
 import "./form.css"
+
 
 
 class Login extends Form {
@@ -22,8 +24,14 @@ schema = {
     password: Joi.string().required().min(5).max(30).label("Password"),
 }
 
-doSubmit = () => {
-  console.log(this.state.data)
+doSubmit = async () => {
+  try {
+    await login(this.state.data);
+    window.location = "/books";
+  }
+  catch (ex) {
+
+  }
 };
 
   render() {
@@ -35,7 +43,7 @@ doSubmit = () => {
               {this.renderInput("email", "Email", "email")}
               {this.renderInput("password", "Password", "password")}
               <p className="form__call">Membru nou? <Link to="/register">Inregistreaza-te</Link></p>
-              <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+              <button type="submit" className="btn btn-primary btn-lg">Submit</button>
           </form>
       </div>
     )

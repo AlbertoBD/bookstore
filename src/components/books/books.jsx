@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import "./books.css"
-import Navbar from '../landing/navbar'
 import SearchBox from '../common/searchBox'
 import ListGroup from '../common/listGroup'
 import BooksBody from './books-body'

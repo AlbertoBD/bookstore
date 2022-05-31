@@ -26,3 +26,8 @@
     right: 15%;
     bottom: 50%;
 }
+
+.user_nav_name {
+    margin-right: 60px;
+    color: white !important;
+}
