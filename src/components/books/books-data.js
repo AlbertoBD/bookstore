@@ -9,6 +9,7 @@ const books = [
         image: "https://m.media-amazon.com/images/I/A1yy50fuVnL._AC_UY545_FMwebp_QL65_.jpg",
         rating: 5,
         stock: 10,
+        quantity: 1
     },
     {
         id: 2,
@@ -18,7 +19,9 @@ const books = [
         description: "Harry Potter and the Philosopher's Stone is a fantasy novel written by British author J. K. Rowling. The story follows Harry Potter, a young wizard who discovers his magical heritage on his eleventh birthday, when he receives a letter of acceptance to Hogwarts School of Witchcraft and Wizardry. Harry is snatched away from his normal life by his former friend, the evil Lord Voldemort, who killed Harry's parents, but in their place, he receives a mysterious letter from the wizard Harry Potter, telling him that he is to become a Horcrux, the object of the Wizarding world's most powerful curse.",
         price: "35.99",
         image: "https://m.media-amazon.com/images/I/91BT--NUiKL._AC_SX296_SY426_FMwebp_QL65_.jpg",
-        rating: 5
+        rating: 5,
+        quantity: 1,
+        stock: 5,
     },
     {
         id: 3,
@@ -28,7 +31,9 @@ const books = [
         description: "The Hobbit, or There and Back Again is a children's fantasy novel written by English author J. R. R. Tolkien. It is based on the 1937 novel The Hobbit by the same author. The story follows the quest of home-loving hobbit Bilbo Baggins and his company of dwarves, Gandalf the Grey, to reclaim their mountain home from Smaug the dragon.",
         price: "65.99",
         image: "https://m.media-amazon.com/images/I/A18niDmK8pL._AC_SX296_SY426_FMwebp_QL65_.jpg",
-        rating: 5
+        rating: 5,
+        quantity: 1,
+        stock: 7,
     },
     {
         id: 4,

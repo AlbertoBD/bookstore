@@ -77,12 +77,15 @@
     width: 100%;
     max-width: 800px;
     background-color: rgb(74, 74, 185);
+    border-radius: 20px;
     color: white;
     height: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 50px;
+    padding-bottom: 20px;
 }
 .cart_total_text {
     font-size: 1.5rem;

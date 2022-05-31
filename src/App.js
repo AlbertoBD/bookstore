@@ -21,12 +21,14 @@ function App() {
   const addToCart = (product) => {
     // if product not in cart add it
     if (!cart.find(item => item.id === product.id)) {
+      product.quantity = 1;
       setCart([...cart, product]);
     }
     // else remove it
     else {
       setCart(cart.filter(item => item.id !== product.id))
     }
+    console.log(cart)
   };
 
   return (
