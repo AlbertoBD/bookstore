@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 import Joi from 'joi-browser'
 import Form from './form'
 import { register } from "../../userService/loginRegister"
-import "./form.css"
-import { faWindowRestore } from '@fortawesome/free-solid-svg-icons'
+import "./form.css" 
+import { toast } from 'react-toastify'
 class Register extends Form {
     state = {
         data: {
@@ -41,6 +41,7 @@ class Register extends Form {
             window.location = "/login";
         }
         catch (ex) {
+            toast.error(ex.response.data);
         }
     };
 
@@ -48,7 +49,6 @@ class Register extends Form {
         return (
             <div className="form__page">
                 <form className="form" onSubmit={this.handleSubmit}>
-                    <h1 className="form__title">Bookstore.ro</h1>
                     <p className="form__title">Register</p>
                     {this.renderInput("name", "Nume", "username")}
                     {this.renderInput("email", "Email", "email")}
@@ -60,7 +60,7 @@ class Register extends Form {
                     {this.renderInput("password", "Parola", "password")}
                     {this.renderInput("repeat_password", "Repeta Parola", "password")}
                     <p className="form__call">Ai deja cont? <Link to="/login">Autentifica-te</Link></p>
-                    <button type="submit" className="btn btn-primary btn-lg" disabled={this.validate()}>Submit</button>
+                    <button type="submit" className="btn btn-primary btn-lg" id="register_btn" disabled={this.validate()}>Submit</button>
                 </form>
             </div>
         )

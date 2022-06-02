@@ -18,8 +18,8 @@ export default function Product({product}) {
                 </Card.Text>
                 <div className="card_buttons">
                     <Button variant="primary" href={"/book/" + product.id}>Mai multe</Button>
-                    <button className={cart.includes(product) ? "shopping_button to_cart" : "shopping_button"} onClick={() => addToCart(product)}>
-                        <FontAwesomeIcon icon={cart.includes(product) ? faCheck : faShoppingCart} />
+                    <button className={cart.some(item => item.id === product.id) ? "shopping_button to_cart" : "shopping_button"} onClick={() => addToCart(product)}>
+                        <FontAwesomeIcon icon={cart.some(item => item.id === product.id) ? faCheck : faShoppingCart} />
                     </button>
                 </div>
             </Card.Body>

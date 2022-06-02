@@ -6,30 +6,38 @@ import CartProduct from './cartProduct';
 import "./cart.css"
 
 export default function Cart() {
-    const { cart, addToCart } = useContext(CartContext);
-    const [books, setBooks] = useState(getBooks().slice(0, 3));
+    const { cart, setCart } = useContext(CartContext);
 
-    const handleQuantityChange = (productId, quantity) => {
-        const product = books.find(book => book.id === productId);
-        product.quantity = quantity;
-        setBooks([...books]);
+    const handleQuantityChange = (product, quantity) => {
+        const localCart = JSON.parse(localStorage.getItem("cart"));
+
+        if (quantity < 1 ) {
+            setCart(cart.filter(item => item.id !== product.id))
+            localStorage.setItem('cart', JSON.stringify(localCart.filter(item => item.id !== product.id)));
+        }
+        
+        else {
+            product.quantity = quantity;
+            setCart(cart.map(item => item.id === product.id ? product : item));
+            localStorage.setItem('cart', JSON.stringify(localCart.map(item => item.id === product.id ? product : item)));
+        }
     };
 
     const calculateTotal = () => {
-        return books.reduce((total, product) => total + (product.price * product.quantity), 0);
+        return cart.reduce((total, product) => total + (product.price * product.quantity), 0).toFixed(2);
     };
     
     return (
         <div className="cart_main pb-5">
             <p className="cart_header">Cosul meu</p>
-            { books.length > 1 && books.map(product => {
+            { cart.map(product => {
                 return <CartProduct product={product} key={product.id} onQuantityChange={handleQuantityChange}/>
             })}
-            { !books.length && <CartProduct product={books} onQuantityChange={handleQuantityChange}/>}
-            <div className="cart_total">
-                <p className="cart_total_text pt-2">Total: {calculateTotal().toFixed(2)} lei </p>
+            { cart.length > 0 && <div className="cart_total">
+                <p className="cart_total_text pt-2">Total: {calculateTotal()} lei </p>
                 <button className="btn btn-success btn-lg cart_total_button">Plaseaza comanda</button>
-            </div>
+            </div>}
+            { cart.length === 0 && <div className="cart_empty">Nu aveti nici un produs in cos</div> }
         </div>
     )
 }

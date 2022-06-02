@@ -14,7 +14,7 @@ export default function Navbar() {
     <header>
       <nav className="navbar navbar-expand-lg navbar-light bg-primary d-flex">
         <a href="/" className="navbar-brand flex-grow-1">Bookstore</a>
-        {!user && <a href="/login"><button className="btn btn-login">Login</button></a>}
+        {!user && <a href="/login"><button className="btn btn-outline-info btn_nav">Login</button></a>}
         {user && <DropdownButton id="dropdown-basic-button" title={user.name.split(" ")[0]}>
           <Dropdown.Item href="#/action-1">Logout</Dropdown.Item>
         </DropdownButton>}

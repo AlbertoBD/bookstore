@@ -16,7 +16,6 @@
 .form__title {
     color: rgb(0, 0, 0);
     font-size: 2.5rem;
-    margin-bottom: 50px;
 }
 
 .alert__input {
@@ -111,5 +110,9 @@ button:disabled:hover {
     .showPass {
         transform: translateX(-20%);
         left: 92%;
+    }
+
+    #register_btn {
+        margin-bottom: 50px;
     }
 }

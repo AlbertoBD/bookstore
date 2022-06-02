@@ -11,10 +11,6 @@ axios.interceptors.response.use(null, error => {
     toast.error("An unexpected error occurrred.");
   }
 
-  if (error) {
-    toast.error(error.response.data);
-  }
-
   return Promise.reject(error);
 });
 

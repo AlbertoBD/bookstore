@@ -4,6 +4,7 @@ import Form from "./form"
 import Joi from 'joi-browser'
 import { login } from '../../userService/loginRegister'
 import "./form.css"
+import { toast } from 'react-toastify'
 
 
 
@@ -30,7 +31,7 @@ doSubmit = async () => {
     window.location = "/books";
   }
   catch (ex) {
-
+    toast.error(ex.response.data);
   }
 };
 
@@ -39,11 +40,11 @@ doSubmit = async () => {
       <div className="form__page">
           <form className="form" onSubmit={this.handleSubmit}>
               <h1 className="form__title">Bookstore.ro</h1>
-              <p className="form__title">Login</p>
+              <p className="form__title mb-5">Login</p>
               {this.renderInput("email", "Email", "email")}
               {this.renderInput("password", "Password", "password")}
               <p className="form__call">Membru nou? <Link to="/register">Inregistreaza-te</Link></p>
-              <button type="submit" className="btn btn-primary btn-lg">Submit</button>
+              <button type="submit" className="btn btn-primary btn-lg" disabled={this.validate()}>Submit</button>
           </form>
       </div>
     )

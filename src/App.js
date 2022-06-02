@@ -24,29 +24,46 @@ function App() {
   const [user, setUser] = useState(null);
   const location = window.location.pathname;
 
-  const addToCart = (product) => {
-    // if product not in cart add it
+
+  function addToCart(product) {
+    const localCart = JSON.parse(localStorage.getItem("cart"));
+
+    // if product is not in cart add it
     if (!cart.find(item => item.id === product.id)) {
       product.quantity = 1;
       setCart([...cart, product]);
+      localStorage.setItem('cart', JSON.stringify([...localCart, product]));
     }
     // else remove it
     else {
       setCart(cart.filter(item => item.id !== product.id))
+      localStorage.setItem('cart', JSON.stringify(localCart.filter(item => item.id !== product.id)));
     }
   };
 
+
   useEffect(() => {
+    const localCart = JSON.parse(localStorage.getItem('cart'));
+    if (localCart) {
+      setCart(localCart);
+    };
+    if (!localCart) {
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
     (async () => {
-      const userData = await getUser();
-      setUser(userData);
+      try {
+        const userData = await getUser();
+        setUser(userData);
+      }
+      catch (error) { }
     })()
-}, []);
+  }, []);
 
   return (
     <>
       <UserContext.Provider value={{ user }}>
-        <CartContext.Provider value={{ cart, addToCart }}>
+        <CartContext.Provider value={{ cart, addToCart, setCart }}>
           <ToastContainer />
           {(location !== "/register" && location !== "/login") && <Navbar />}
           <Routes>

@@ -4,13 +4,13 @@ import SearchBox from '../common/searchBox'
 import ListGroup from '../common/listGroup'
 import BooksBody from './books-body'
 import { getBooks } from './books-data'
-import  getGenres from './genre-data'
+import getGenres from './genre-data'
 import Pagination from '../common/pagination'
 
 
 export default function Books() {
     const [search, setSearch] = useState("");
-    
+
     const [currentGenre, setCurrentGenre] = useState("Toate genurile");
     const [genres, setGenres] = useState([]);
     const [genresCopy, setGenresCopy] = useState([]);
@@ -81,7 +81,7 @@ export default function Books() {
         <>
             <SearchBox onChange={handleSearch} value={search} />
             <ListGroup currentGenre={currentGenre} onGenreChange={handleGenreChange} genres={genres} />
-            <BooksBody books={books} genres={genres} currentGenre={currentGenre} page={page} setPage={setPage} pageSize={pageSize}/>
+            <BooksBody books={books} genres={genres} currentGenre={currentGenre} page={page} setPage={setPage} pageSize={pageSize} />
             <Pagination itemsCount={genres.length} pageSize={pageSize} currentPage={page} onPageChange={setPage} />
         </>
     )
