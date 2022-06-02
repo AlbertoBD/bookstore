@@ -9,17 +9,19 @@ export default function Cart() {
     const { cart, setCart } = useContext(CartContext);
 
     const handleQuantityChange = (product, quantity) => {
-        const localCart = JSON.parse(localStorage.getItem("cart"));
-
         if (quantity < 1 ) {
-            setCart(cart.filter(item => item.id !== product.id))
-            localStorage.setItem('cart', JSON.stringify(localCart.filter(item => item.id !== product.id)));
+            const newCart = cart.filter(p => p.id !== product.id);
+
+            setCart(newCart)
+            localStorage.setItem('cart', JSON.stringify(newCart));
         }
         
         else {
             product.quantity = quantity;
-            setCart(cart.map(item => item.id === product.id ? product : item));
-            localStorage.setItem('cart', JSON.stringify(localCart.map(item => item.id === product.id ? product : item)));
+            const newCart = cart.map(item => item.id === product.id ? product : item)
+            
+            setCart(newCart);
+            localStorage.setItem('cart', JSON.stringify(newCart));
         }
     };
 

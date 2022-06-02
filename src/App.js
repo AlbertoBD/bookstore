@@ -26,31 +26,31 @@ function App() {
 
 
   function addToCart(product) {
-    const localCart = JSON.parse(localStorage.getItem("cart"));
-
     // if product is not in cart add it
     if (!cart.find(item => item.id === product.id)) {
       product.quantity = 1;
-      setCart([...cart, product]);
-      localStorage.setItem('cart', JSON.stringify([...localCart, product]));
+      const newCart = [...cart, product];
+
+      setCart(newCart);
+      localStorage.setItem('cart', JSON.stringify(newCart));
     }
     // else remove it
     else {
-      setCart(cart.filter(item => item.id !== product.id))
-      localStorage.setItem('cart', JSON.stringify(localCart.filter(item => item.id !== product.id)));
+      const newCart = cart.filter(item => item.id !== product.id);
+      
+      setCart(newCart)
+      localStorage.setItem('cart', JSON.stringify(newCart));
     }
   };
 
 
   useEffect(() => {
+    // create cart on local storage if not existent
     const localCart = JSON.parse(localStorage.getItem('cart'));
-    if (localCart) {
-      setCart(localCart);
-    };
-    if (!localCart) {
-      localStorage.setItem('cart', JSON.stringify(cart));
-    }
 
+    if (localCart) setCart(localCart);
+    if (!localCart) localStorage.setItem('cart', JSON.stringify(cart));
+    
     (async () => {
       try {
         const userData = await getUser();
