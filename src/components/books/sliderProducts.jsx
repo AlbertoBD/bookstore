@@ -42,11 +42,11 @@ export default function SliderProducts({ products, category }) {
                     <Button variant="primary" className="shift_btn prev" onClick={() => slideAnim("left")} disabled={page === 1}>
                         <FontAwesomeIcon icon={faAngleLeft} />
                     </Button>}
-                <div key={category.id} className="genre_books">
+                <div key={category._id} className="genre_books">
                     <div className={slide ? `books_list slide_${slide}` : "books_list"}>
                         {paginatedProducts.map(product => {
                             return (
-                                <Product product={product} key={product.id} />
+                                <Product product={product} key={product._id} />
                             )
                         })}
                     </div>

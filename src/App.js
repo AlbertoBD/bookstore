@@ -27,7 +27,7 @@ function App() {
 
   function addToCart(product) {
     // if product is not in cart add it
-    if (!cart.find(item => item.id === product.id)) {
+    if (!cart.find(item => item._id === product._id)) {
       product.quantity = 1;
       const newCart = [...cart, product];
 
@@ -36,7 +36,7 @@ function App() {
     }
     // else remove it
     else {
-      const newCart = cart.filter(item => item.id !== product.id);
+      const newCart = cart.filter(item => item._id !== product._id);
       
       setCart(newCart)
       localStorage.setItem('cart', JSON.stringify(newCart));

@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import "./books.css"
+import { Spinner } from 'react-bootstrap'
 import SearchBox from '../common/searchBox'
 import ListGroup from '../common/listGroup'
 import BooksBody from './books-body'
-import { getBooks } from './books-data'
-import getGenres from './genre-data'
+import { getBooks } from "../../userService/books"
+import {getGenres} from '../../userService/genres'
 import Pagination from '../common/pagination'
 
 
 export default function Books() {
     const [search, setSearch] = useState("");
+    const [loading, setLoading] = useState(true);
 
     const [currentGenre, setCurrentGenre] = useState("Toate genurile");
     const [genres, setGenres] = useState([]);
@@ -67,14 +69,30 @@ export default function Books() {
 
 
     useEffect(() => {
-        const genresData = getGenres();
-        setGenres(genresData);
-        setGenresCopy(genresData);
-
-        const booksData = getBooks();
-        setBooks(booksData);
-        setBooksCopy(booksData);
+        (async () => {
+            try {
+                const books = await getBooks();
+                const genres = await getGenres();
+                setBooks(books);
+                setBooksCopy(books);
+                setGenres(genres);
+                setGenresCopy(genres);
+                
+                setTimeout(() => {
+                    setLoading(false);
+                }, 300)
+            }
+            catch (error) {}
+        })()
     }, []);
+
+    if (loading) {
+        return (
+            <div className="cart-spinner">
+                <Spinner animation="border" variant="primary" />
+            </div>
+        )
+    }
 
 
     return (
