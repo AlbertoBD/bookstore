@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import { Route, Routes } from "react-router-dom"
+import ProtectedRoutes from './components/common/protectedRoute';
 import Home from "./components/landing/home"
 import Login from "./components/form/login";
 import Register from "./components/form/register"
@@ -78,10 +79,12 @@ function App() {
             <Route path="/book/:id" element={<Book />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/orders" element={<Orders />} />
-            <Route path="/admin/orders" element={<AdminOrders />} />
             <Route path="/order/:id" element={<OrderDetails />} />
+            <Route path="/admin/" element={<ProtectedRoutes />} > 
+            <Route path="/admin/orders" element={<AdminOrders />} />
             <Route path="/admin/new-product" element={<NewProductWrapper />} />
             <Route path="/admin/new-product/:id" element={<NewProductWrapper />} />
+            </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
         </CartContext.Provider>
