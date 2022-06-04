@@ -21,7 +21,7 @@ export default function Books() {
     const [booksCopy, setBooksCopy] = useState([]);
 
     const [page, setPage] = useState(1);
-    const pageSize = 2;
+    const pageSize = 4;
 
 
     const handleSearch = (e) => {

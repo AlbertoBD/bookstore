@@ -14,6 +14,7 @@ import Cart from './components/cart/cart';
 import Orders from "./components/orders/orders";
 import AdminOrders from "./components/orders/adminOrders";
 import OrderDetails from './components/orders/orderDetails';
+import NewProductWrapper from "./components/form/newProductWrapper"
 import { getUser } from './userService/loginRegister';
 import { ToastContainer } from "react-toastify";
 import "bootstrap"
@@ -79,6 +80,8 @@ function App() {
             <Route path="/orders" element={<Orders />} />
             <Route path="/admin/orders" element={<AdminOrders />} />
             <Route path="/order/:id" element={<OrderDetails />} />
+            <Route path="/admin/new-product" element={<NewProductWrapper />} />
+            <Route path="/admin/new-product/:id" element={<NewProductWrapper />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </CartContext.Provider>

@@ -38,6 +38,7 @@ export default function Navbar() {
           <Dropdown.Item onClick={() => handleLogout()}>Logout</Dropdown.Item>
           <Dropdown.Item href="/orders">Comenzile mele</Dropdown.Item>
           {user.isAdmin && <Dropdown.Item href="/admin/orders">Toate comenzile</Dropdown.Item>}
+          {user.isAdmin && <Dropdown.Item href="/admin/new-product">Adauga produs nou</Dropdown.Item>}
         </DropdownButton>}
         {!user && !loading && <a href="/login"><button className="btn btn-outline-info btn_nav">Login</button></a>}
         <div className="shopping_cart_group">

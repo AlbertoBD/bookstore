@@ -60,6 +60,21 @@
         margin: 20px auto;
         border-radius: 8px;
     }
+    .book_description {
+        margin-bottom: 50px;
+    }
+
+    .admin_edit_buttons {
+        left: 50%;
+    }
 
 }
     
+.admin_edit_buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+    top: 93%;
+    left: 5%;
+    width: 170px;
+}

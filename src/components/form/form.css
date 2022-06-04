@@ -116,3 +116,11 @@ button:disabled:hover {
         margin-bottom: 50px;
     }
 }
+
+.textarea_label {
+    color: rgb(0, 0, 0);
+}
+
+#description {
+    height: 100px;
+}
