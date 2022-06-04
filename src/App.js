@@ -11,6 +11,9 @@ import NotFound from './components/common/notFound';
 import CartContext from './context/cartContext';
 import UserContext from './context/userContext';
 import Cart from './components/cart/cart';
+import Orders from "./components/orders/orders";
+import AdminOrders from "./components/orders/adminOrders";
+import OrderDetails from './components/orders/orderDetails';
 import { getUser } from './userService/loginRegister';
 import { ToastContainer } from "react-toastify";
 import "bootstrap"
@@ -73,6 +76,9 @@ function App() {
             <Route path="/books" element={<Books />} />
             <Route path="/book/:id" element={<Book />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/orders" element={<Orders />} />
+            <Route path="/admin/orders" element={<AdminOrders />} />
+            <Route path="/order/:id" element={<OrderDetails />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </CartContext.Provider>

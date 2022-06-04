@@ -28,3 +28,10 @@ export async function getUser() {
   });
   return result.data;
 };
+
+export async function logout() {
+    const result = await http.post(apiEndpoint + "/users/logout", {}, {
+      withCredentials: true
+    });
+    return result.data;
+}

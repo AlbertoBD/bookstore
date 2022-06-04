@@ -1,0 +1,23 @@
+.orders_div {
+    text-align: center;
+    margin: 0 20px;
+}
+
+.orders_container {
+    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+
+.order_card {
+    width: 100%;
+    max-width: 300px;
+    justify-self: center;
+    align-self: center;
+}
+
+.order_card .card-body {
+    background: rgb(200, 199, 199);
+    display: flex;
+    flex-direction: column;
+}

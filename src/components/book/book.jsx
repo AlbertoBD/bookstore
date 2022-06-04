@@ -53,7 +53,7 @@ export default function Book() {
                         <p className="book_description">{book.description}</p>
                     </div>
                 </div>
-                <button className={cart.some(item => item._id === book._id) ? "shopping_button to_cart static_btn" : "shopping_button static_btn"} onClick={() => addToCart(book)}>
+                <button className={cart.some(item => item._id === book._id) ? "shopping_button to_cart static_btn" : "shopping_button static_btn"} disabled={book.stock === 0} onClick={() => addToCart(book)}>
                     {cart.some(item => item._id === book._id) ? "Adaugat" : "Adauga in cos"}
                     <FontAwesomeIcon icon={cart.some(item => item._id === book._id) ? faCheck : faShoppingCart} className="book_icon" />
                 </button>
