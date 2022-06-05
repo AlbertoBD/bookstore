@@ -42,7 +42,7 @@ function App() {
     // else remove it
     else {
       const newCart = cart.filter(item => item._id !== product._id);
-      
+
       setCart(newCart)
       localStorage.setItem('cart', JSON.stringify(newCart));
     }
@@ -55,7 +55,7 @@ function App() {
 
     if (localCart) setCart(localCart);
     if (!localCart) localStorage.setItem('cart', JSON.stringify(cart));
-    
+
     (async () => {
       try {
         const userData = await getUser();
@@ -80,10 +80,10 @@ function App() {
             <Route path="/cart" element={<Cart />} />
             <Route path="/orders" element={<Orders />} />
             <Route path="/order/:id" element={<OrderDetails />} />
-            <Route path="/admin/" element={<ProtectedRoutes />} > 
-            <Route path="/admin/orders" element={<AdminOrders />} />
-            <Route path="/admin/new-product" element={<NewProductWrapper />} />
-            <Route path="/admin/new-product/:id" element={<NewProductWrapper />} />
+            <Route path="/admin/" element={<ProtectedRoutes />} >
+              <Route path="/admin/orders" element={<AdminOrders />} />
+              <Route path="/admin/new-product" element={<NewProductWrapper />} />
+              <Route path="/admin/new-product/:id" element={<NewProductWrapper />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>

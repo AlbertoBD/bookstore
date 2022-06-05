@@ -3,11 +3,12 @@ import "./books.css"
 import { Spinner } from 'react-bootstrap'
 import SearchBox from '../common/searchBox'
 import ListGroup from '../common/listGroup'
+import SortGroup from '../common/sortGroup'
 import BooksBody from './books-body'
 import { getBooks } from "../../userService/books"
 import {getGenres} from '../../userService/genres'
 import Pagination from '../common/pagination'
-
+import _ from 'lodash'
 
 export default function Books() {
     const [search, setSearch] = useState("");
@@ -17,12 +18,25 @@ export default function Books() {
     const [genres, setGenres] = useState([]);
     const [genresCopy, setGenresCopy] = useState([]);
 
+    const [sort, setSort] = useState(
+        {path: "price", order: "desc"}
+    );
+
     const [books, setBooks] = useState([]);
     const [booksCopy, setBooksCopy] = useState([]);
 
     const [page, setPage] = useState(1);
     const pageSize = 4;
 
+
+    const handleSort = (option) => {
+        const sortedBooks = _.orderBy(booksCopy, [option.path], [option.order]);
+        setBooks(sortedBooks);
+        setBooksCopy(sortedBooks);
+        setPage(1);
+        setSearch("");
+        setCurrentGenre("Toate genurile");
+    }
 
     const handleSearch = (e) => {
         setSearch(e.target.value);
@@ -98,7 +112,10 @@ export default function Books() {
     return (
         <>
             <SearchBox onChange={handleSearch} value={search} />
-            <ListGroup currentGenre={currentGenre} onGenreChange={handleGenreChange} genres={genres} />
+            <div className='sorting_ordering'>
+                <ListGroup currentGenre={currentGenre} onGenreChange={handleGenreChange} genres={genres} />
+                <SortGroup onSort={handleSort} />
+            </div>
             <BooksBody books={books} genres={genres} currentGenre={currentGenre} page={page} setPage={setPage} pageSize={pageSize} />
             <Pagination itemsCount={genres.length} pageSize={pageSize} currentPage={page} onPageChange={setPage} />
         </>

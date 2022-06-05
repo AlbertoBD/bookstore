@@ -200,3 +200,12 @@
 .next {
     margin-bottom: 40px;
 }
+
+.sorting_ordering {
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
